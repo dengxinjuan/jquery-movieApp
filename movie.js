@@ -6,7 +6,7 @@ function appendMovie(movieData){
         <td>${movieData.movieTitle}</td>
         <td>${movieData.movieRating}</td>
         <td>
-        <button type="button" class="btn btn-danger">x</button>
+        <button type="button" class="btn btn-danger" data-delete-id=${movieData.currentId}>x</button>
         </td>
       </tr>` ;
 }
@@ -53,8 +53,8 @@ function sortRating(arr){
 
 function  sortTitle(arr){
     return arr.sort(function(a,b){
-        if(+a.movieTitle > +b.movieTitle){return 1;}
-        if(+a.movieTitle < +b.movieTitle){return -1;}
+        if(a.movieTitle > b.movieTitle){return 1;}
+        if(a.movieTitle < b.movieTitle){return -1;}
         return 0;
     })
 };
