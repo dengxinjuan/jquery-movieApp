@@ -34,7 +34,7 @@ $('#movieForm').on("submit",function(e){
 
 
 $("tbody").on("click", ".btn.btn-danger", function(e) {
-    let indexToRemoveAt = movieArr.findIndex(movie => movie.currentId === +$(e.target).data("deleteId"))
+    let indexToRemoveAt = movieArr.findIndex(movie => movie.currentId === +$(e.target).data("deleteId"));
     movieArr.splice(indexToRemoveAt, 1);
 
     $(e.target)
@@ -45,16 +45,16 @@ $("tbody").on("click", ".btn.btn-danger", function(e) {
 
 function sortRating(arr){
     return arr.sort(function(a,b){
-        if(a.movieRating > b.movieRating){ return -1;}
-         if(a.movieRating < b.movieRating){return 1;}
+        if(+a.movieRating > +b.movieRating){ return -1;}
+         if(+a.movieRating < +b.movieRating){return 1;}
         return 0;})
 };
 
 
 function  sortTitle(arr){
     return arr.sort(function(a,b){
-        if(a.movieTitle > b.movieTitle){return 1;}
-        if(a.movieTitle < b.movieTitle){return -1;}
+        if(+a.movieTitle > +b.movieTitle){return 1;}
+        if(+a.movieTitle < +b.movieTitle){return -1;}
         return 0;
     })
 };
