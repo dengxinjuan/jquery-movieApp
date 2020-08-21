@@ -54,7 +54,7 @@ function sortRating(arr){
 function  sortTitle(arr){
     return arr.sort(function(a,b){
         if(a.movieTitle > b.movieTitle){return 1;}
-        if(a.movieTitle > b.movieTitle){return -1;}
+        if(a.movieTitle < b.movieTitle){return -1;}
         return 0;
     })
 };
@@ -67,6 +67,7 @@ $("#ratingdrop").on("click",function(){
         const HTMLtoAppend = appendMovie(movie);
         $("#tbody").append(HTMLtoAppend);
       }
+      $('#movieForm').trigger("reset");
 });
 
 $("#titledrop").on("click",function(){
@@ -75,5 +76,6 @@ $("#titledrop").on("click",function(){
     for (let movie of sortedtitle) {
         const HTMLtoAppend = appendMovie(movie);
         $("#tbody").append(HTMLtoAppend);
-      }
+      };
+      $('#movieForm').trigger("reset")
 })
