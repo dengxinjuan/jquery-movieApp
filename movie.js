@@ -54,6 +54,13 @@ function sortRating(arr){
 };
 
 
+function sortLowRating(arr){
+    return arr.sort(function(a,b){
+        if(+a.movieRating > +b.movieRating){ return 1;}
+         if(+a.movieRating < +b.movieRating){return -1;}
+        return 0;})
+};
+
 function  sortTitle(arr){
     return arr.sort(function(a,b){
         if(a.movieTitle > b.movieTitle){return 1;}
@@ -62,6 +69,13 @@ function  sortTitle(arr){
     })
 };
 
+function  sortZTitle(arr){
+    return arr.sort(function(a,b){
+        if(a.movieTitle > b.movieTitle){return -1;}
+        if(a.movieTitle < b.movieTitle){return 1;}
+        return 0;
+    })
+};
 
 $("#ratingdrop").on("click",function(){
     let sortedRating = sortRating(movieArr);
@@ -73,8 +87,33 @@ $("#ratingdrop").on("click",function(){
       $('#movieForm').trigger("reset");
 });
 
+
+
+$("#ratingdropLow").on("click",function(){
+    let sortedRating = sortLowRating(movieArr);
+    $("#tbody").empty();
+    for (let movie of sortedRating) {
+        const HTMLtoAppend = appendMovie(movie);
+        $("#tbody").append(HTMLtoAppend);
+      }
+      $('#movieForm').trigger("reset");
+});
+
+
+
+
 $("#titledrop").on("click",function(){
     let sortedtitle = sortTitle(movieArr);
+    $("#tbody").empty();
+    for (let movie of sortedtitle) {
+        const HTMLtoAppend = appendMovie(movie);
+        $("#tbody").append(HTMLtoAppend);
+      };
+      $('#movieForm').trigger("reset")
+});
+
+$("#titledropZ").on("click",function(){
+    let sortedtitle = sortZTitle(movieArr);
     $("#tbody").empty();
     for (let movie of sortedtitle) {
         const HTMLtoAppend = appendMovie(movie);
