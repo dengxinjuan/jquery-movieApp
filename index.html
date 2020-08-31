@@ -53,24 +53,21 @@
   <div class="container col-8 p-7 inline-block">
   <table class="table table-hover shadow" id="table">
 
-    <div class="dropdown p-1">
-      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sort
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" id="ratingdrop">By HighestRating</a>
-        <a class="dropdown-item" id="ratingdropLow">By Lowest Rating</a>
-        <a class="dropdown-item" id="titledrop">By A-Z </a>
-        <a class="dropdown-item" id="titledropZ">By Z-A </a>
-      </div>
-    </div>
 
 
     <thead>
       <tr>
   
-        <th scope="col">movie title</th>
-        <th scope="col">movie rating</th>
+        <th scope="col">movie title
+          <i  id="titledrop" class="fas fa-sort-down"></i>
+          <i  id="titledropZ" class="fas fa-sort-up"></i>
+          
+        </th>
+        <th scope="col">movie rating
+
+          <i  id="ratingdrop" class="fas fa-sort-down"></i>
+          <i id="ratingdropLow" class="fas fa-sort-up"></i>
+        </th>
         <th scope="col">remove</th>
       </tr>
     </thead>
